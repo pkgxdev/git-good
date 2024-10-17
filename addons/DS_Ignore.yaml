@@ -1,0 +1,28 @@
+name:
+  .DS_Ignore
+
+type:
+  configuration
+
+description:
+  Never accidentally commit a `.DS_Store` file again.
+
+elaboration:
+  Installs a global gitignore file and configure git to use it.
+
+caveats:
+  - You should still add `.DS_Store` to your `.gitignore` file if you are
+    likely to work with other macOS users now or in the future.
+
+#TODO verify git-config is set too
+sniff:
+  - test -f "$HOME/${$XDG_CONFIG_HOME:-.config}"/git/ignore
+
+install:
+  - echo ".DS_Store" >> "$HOME/${$XDG_CONFIG_HOME:-.config}"/git/ignore
+  - git config --global core.excludesfile ~/.gitignore_global
+
+#TODO only remove our one-line
+uninstall:
+  - rm "$HOME/${$XDG_CONFIG_HOME:-.config}"/git/ignore
+  - git config --global --unset core.excludesfile

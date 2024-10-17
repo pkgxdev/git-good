@@ -1,0 +1,20 @@
+description:
+  A modern, capable, native GUI complement for the git CLI.
+
+type:
+  app
+
+sniff:
+  mdfind "kMDItemCFBundleIdentifier == 'com.DanPristupov.Fork'"
+
+install:
+  dependencies:
+    brew.sh
+  script:
+    brew install --cask fork
+
+uninstall:
+  dependencies:
+    brew.sh
+  script:
+    brew uninstall --cask fork

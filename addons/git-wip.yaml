@@ -1,0 +1,16 @@
+description:
+  Commits all changes to a single commit w/message ”wip”.
+
+type:
+  alias
+
+# TODO verify it is unmodified from our pristine string
+sniff:
+  git config --global alias.wip
+
+install: >
+  git config --global alias.wip
+  !"git add -A; git ls-files --deleted -z | xargs -0 git rm; git commit -m \"wip\""
+
+uninstall:
+  git config --global --unset alias.wip
