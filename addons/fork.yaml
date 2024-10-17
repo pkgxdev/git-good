@@ -1,0 +1,17 @@
+description:
+  A modern, capable, native GUI complement for the git CLI.
+
+homepage:
+  https://git-fork.com
+
+type:
+  app
+
+sniff:
+  mdfind "kMDItemCFBundleIdentifier == 'com.DanPristupov.Fork'"
+
+install:
+  brew install --cask fork
+
+uninstall:
+  brew uninstall --cask fork

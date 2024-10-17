@@ -1,0 +1,20 @@
+description:
+  Extras for Git; repo summary, REPL, changelog, author metrics & more
+
+homepage:
+  https://github.com/tj/git-extras
+
+elaboration:
+  https://github.com/tj/git-extras/blob/main/Commands.md
+
+type:
+  extension
+
+sniff:
+  brew list git-extras
+
+install:
+  brew install git-extras
+
+uninstall:
+  brew uninstall git-extras

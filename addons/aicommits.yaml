@@ -1,0 +1,27 @@
+description:
+  Generate your commit messages via OpenAI.
+
+#TODO
+# use local AI. Realistically this requires a way to run a LocalLLM server
+# which is not currently trivial. teaBASE could support setting up such
+# daemons in a usable way which this could then depend upon.
+
+usage:
+  - "`OPENAI_KEY` must be set in your shell environment."
+  - We provide the alias `git ai`. This invokes the underlying `aicommits`
+    tool the project provides.
+
+homepage:
+  https://github.com/Nutlope/aicommits
+
+type:
+  extension
+
+sniff:
+  git config --global alias.ai
+
+install:
+  git config --global alias.ai !"pkgx npx --yes aicommits"
+
+uninstall:
+  git config --global --unset alias.ai
