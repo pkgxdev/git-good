@@ -105,11 +105,18 @@ switch (Deno.args[0]) {
   case 'lsj': {
     await ensure_manifests({quick: true});
     const out = [];
+
+    const set = new Set();
+    for await (const {key} of (await kv()).list({ prefix: ["installed"] })) {
+      set.add(key[1] as string);
+    }
+
     for await (let [, {isFile, name}] of manifests_d.ls()) {
       if (isFile) {
         name = name.replace(/\.[^/.]+$/, "");
         const {description} = await get_manifest(name);
-        out.push({name, description});
+        const installed = set.has(name) ? true : undefined;
+        out.push({name, description, installed});
       }
     }
     console.log(JSON.stringify(out, null, 2));
