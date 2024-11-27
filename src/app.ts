@@ -103,7 +103,7 @@ switch (Deno.args[0]) {
     break;
 
   case 'lsj': {
-    await ensure_manifests({quick: true});
+    await ensure_manifests({quick: false});
     const out = [];
 
     const set = new Set();
