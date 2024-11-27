@@ -1,0 +1,17 @@
+description:
+  A full-featured, freemium, git client focusing on productivity
+
+homepage:
+  https://gitkraken.com
+
+type:
+  app
+
+sniff:
+  mdfind "kMDItemCFBundleIdentifier == 'com.axosoft.gitkraken'"
+
+install:
+  brew install --cask gitkraken
+
+uninstall:
+  brew uninstall --cask gitkraken
